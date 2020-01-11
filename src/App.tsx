@@ -1,6 +1,10 @@
 import React from "react";
 
-const App = (props) => {
+export interface AppProps {
+
+}
+
+const App: React.FC<AppProps> = (props) => {
   return (
     <div className={"app"}/>
   );
