@@ -6,6 +6,8 @@ const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
   filename: "index.html"
 });
 
+const buildDirectory = "build";
+
 module.exports = {
   entry: __dirname + "/src/index.js",
   module: {
@@ -28,10 +30,10 @@ module.exports = {
   },
   output: {
     filename: "bundle.js",
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, buildDirectory),
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, buildDirectory),
     compress: true,
     port: 9000
   },
