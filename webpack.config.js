@@ -40,5 +40,8 @@ module.exports = {
     compress: true,
     port: 9000
   },
+  resolve: {
+    extensions: [".js", ".jsx", ".ts", ".tsx"]
+  },
   plugins: [HTMLWebpackPluginConfig]
 };
