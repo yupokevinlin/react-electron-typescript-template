@@ -33,8 +33,11 @@
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^2.3.0",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^4.0.6",
     "jest": "^24.9.0",
     "jest-styled-components": "^6.3.4",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
     "ts-jest": "^24.3.0",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.4",
@@ -42,5 +45,10 @@
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0",
     "webpack-env": "^0.8.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
