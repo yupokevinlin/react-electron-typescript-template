@@ -6,5 +6,6 @@ module.exports = {
     "^.+\\.(ts|tsx)$": "ts-jest"
   },
   testMatch: ["**/?(*.)+(spec|test).[jt]s?(x)"],
-  moduleFileExtensions: ["tsx", "ts", "jsx", "js", "json", "node"]
+  moduleFileExtensions: ["tsx", "ts", "jsx", "js", "json", "node"],
+  snapshotSerializers: ["enzyme-to-json/serializer"]
 };
