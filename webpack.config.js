@@ -9,7 +9,7 @@ const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
 const buildDirectory = "build";
 
 module.exports = {
-  entry: __dirname + "/src/index.tsx",
+  entry: __dirname + "/src/app/index.tsx",
   module: {
     rules: [
       {
