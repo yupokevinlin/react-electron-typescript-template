@@ -28,6 +28,18 @@ module.exports = {
           }
         },
         exclude: /node_modules/
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/,
+        use: [
+          "file-loader",
+          {
+            loader: "image-webpack-loader",
+            options: {
+              disable: true
+            }
+          }
+        ]
       }
     ]
   },
