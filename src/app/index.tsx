@@ -1,5 +1,20 @@
-import ReactDOM from "react-dom";
 import React from "react";
+import ReactDOM from "react-dom";
+
+import { AppContainer } from "react-hot-loader";
+
 import App from "./App";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+const mainElement = document.createElement("div");
+document.body.appendChild(mainElement);
+
+const render = (Component: () => JSX.Element) => {
+  ReactDOM.render(
+    <AppContainer>
+      <Component />
+    </AppContainer>,
+    mainElement
+  );
+};
+
+render(App);

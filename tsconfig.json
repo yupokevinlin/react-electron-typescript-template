@@ -4,10 +4,18 @@
   "compilerOptions": {
     "target": "es2019",
     "module": "esnext",
-    "lib": ["dom", "esnext"],
+    "lib": [
+      "dom",
+      "es2015",
+      "es2016",
+      "es2017",
+      "es2018",
+      "es2019",
+      "esnext"
+    ],
     "allowJs": false,
     "jsx": "react",
-    "outDir": "./build/",
+    "outDir": "./build",
     "strict": true,
     "noImplicitAny": false,
     "moduleResolution": "node",
@@ -16,5 +24,8 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "resolveJsonModule": true
-  }
+  },
+  "include": [
+    "./src"
+  ]
 }

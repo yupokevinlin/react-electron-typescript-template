@@ -1,15 +1,15 @@
-const HTMLWebpackPlugin = require("html-webpack-plugin");
-const path = require("path");
+const webpack = require("webpack");
+const merge = require("webpack-merge");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
-const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
-  template: path.join(__dirname, "public/index.html"),
-  filename: "index.html"
-});
+const baseConfig = require("./webpack.electron.base.config");
 
-const buildDirectory = "build";
-
-module.exports = {
-  entry: __dirname + "/src/app/index.tsx",
+module.exports = merge.smart(baseConfig, {
+  target: "electron-renderer",
+  entry: {
+    app: ["@babel/polyfill","./src/app/index.tsx"]
+  },
   module: {
     rules: [
       {
@@ -25,6 +25,9 @@ module.exports = {
                 { targets: { browsers: "last 2 versions " } }
               ],
               "@babel/preset-react"
+            ],
+            plugins: [
+              "@babel/transform-runtime"
             ]
           }
         },
@@ -44,6 +47,9 @@ module.exports = {
               ],
               "@babel/preset-typescript",
               "@babel/preset-react"
+            ],
+            plugins: [
+              "@babel/transform-runtime"
             ]
           }
         },
@@ -71,17 +77,14 @@ module.exports = {
       }
     ]
   },
-  output: {
-    filename: "bundle.js",
-    path: path.join(__dirname, buildDirectory),
-  },
-  devServer: {
-    contentBase: path.join(__dirname, buildDirectory),
-    compress: true,
-    port: 9000
-  },
-  resolve: {
-    extensions: [".js", ".jsx", ".ts", ".tsx"]
-  },
-  plugins: [HTMLWebpackPluginConfig]
-};
+  plugins: [
+    new ForkTsCheckerWebpackPlugin({
+      reportFiles: ["src/app/**/*"]
+    }),
+    new webpack.NamedModulesPlugin(),
+    new HtmlWebpackPlugin(),
+    new webpack.DefinePlugin({
+      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV || "development")
+    })
+  ]
+});

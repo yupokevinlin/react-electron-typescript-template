@@ -1,9 +1,8 @@
+import { hot } from "react-hot-loader/root";
 import React from "react";
 
-export interface AppProps {}
-
-const App: React.FC<AppProps> = props => {
+const App = () => {
   return <div className={"app"} />;
 };
 
-export default App;
+export default hot(App);
