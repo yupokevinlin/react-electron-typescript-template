@@ -40,7 +40,7 @@ For electron development:
 ```bash
 npm run start-dev
 ```
-Your electron application will be open in a window.
+Your electron application will be opened in a new window.
 
 ## License
 [MIT](MIT.md) © [Kevin Lin](https://github.com/yupokevinlin)
