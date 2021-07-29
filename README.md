@@ -15,12 +15,12 @@ Clone the repository with Git:
 
 For web development:
 ```bash
-git clone --single-branch --branch web-template git@github.com:yupokevinlin/react-electron-typescript-template.git <your-project-name>
+git clone --single-branch --branch web-template https://github.com/yupokevinlin/react-electron-typescript-template.git <your-project-name>
 ```
 
 For electron development:
 ```bash
-git clone --single-branch --branch electron-template git@github.com:yupokevinlin/react-electron-typescript-template.git <your-project-name>
+git clone --single-branch --branch electron-template https://github.com/yupokevinlin/react-electron-typescript-template.git <your-project-name>
 ```
 
 And then install the dependencies:
